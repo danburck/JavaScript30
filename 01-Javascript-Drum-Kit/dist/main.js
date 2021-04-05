@@ -1,0 +1,1 @@
+window.addEventListenter("keydown",(e=>{console.log(e)}));
