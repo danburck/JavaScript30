@@ -17,6 +17,46 @@
 <script>
   const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+
+
+// fetch cities
+// #filterByQuery
+// const input
+// add event listener
+// pass value to method
+
+const cities = [];
+const searchInput = document.querySelector('.search');
+
+fetch(endpoint)
+  .then((response) => response.json())
+  .then((data) => cities.push(...data));
+
+function filterByQuery (wordToMatch, cities) {
+  return cities.filter(place => {
+    regex = new RegExp(wordToMatch, 'gi');
+    return place.city.match(regex) || place.state.match(regex);
+  })
+}
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const cities = [];
 
   fetch(endpoint)
